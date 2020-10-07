@@ -1,0 +1,153 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "ApimServiceName": {
+      "type": "string"
+    },
+    "PolicyXMLBaseUrl": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "properties": {
+        "description": "Azure Logic App.",
+        "authenticationSettings": {
+          "subscriptionKeyRequired": false
+        },
+        "subscriptionKeyParameterNames": {
+          "header": "Ocp-Apim-Subscription-Key",
+          "query": "subscription-key"
+        },
+        "apiRevision": "1",
+        "isCurrent": true,
+        "subscriptionRequired": true,
+        "displayName": "ST-AIP-TEST",
+        "serviceUrl": "https://prod-00-st-aip-ise-shar-chbdhe5usxcr4-internal.australiaeast.environments.microsoftazurelogicapps.net/workflows/e2ac930177ce45f1a358715cffd9b260/triggers",
+        "path": "test1",
+        "protocols": [
+          "https"
+        ]
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-aip-test')]",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "apiVersion": "2019-01-01",
+      "dependsOn": []
+    },
+    {
+      "properties": {
+        "contentType": "application/vnd.ms-azure-apim.swagger.definitions+json",
+        "document": {
+          "value": "{\"request-manual\":{},\"ManualPathsInvokeTrackingidTripIdTimestampGet200ApplicationJsonResponse\":{\"type\":\"object\"},\"ManualPathsInvokeTrackingidTripIdTimestampGet500ApplicationJsonResponse\":{\"type\":\"object\"}}"
+        }
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/ST-AIP-TEST/5f0bf30456311f13f0db1573')]",
+      "type": "Microsoft.ApiManagement/service/apis/schemas",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('ApimServiceName'), 'ST-AIP-TEST')]"
+      ]
+    },
+    {
+      "properties": {
+        "templateParameters": [
+          {
+            "name": "trackingid",
+            "description": "The trigger relative path parameter.",
+            "type": "string",
+            "required": true,
+            "values": []
+          },
+          {
+            "name": "tripId",
+            "description": "The trigger relative path parameter.",
+            "type": "string",
+            "required": true,
+            "values": []
+          },
+          {
+            "name": "timestamp",
+            "description": "The trigger relative path parameter.",
+            "type": "string",
+            "required": true,
+            "values": []
+          }
+        ],
+        "description": "Trigger a run of the logic app.",
+        "request": {
+          "description": "The request body.",
+          "queryParameters": [],
+          "headers": [],
+          "representations": [
+            {
+              "contentType": "application/json",
+              "schemaId": "5f0bf30456311f13f0db1573",
+              "typeName": "request-manual"
+            }
+          ]
+        },
+        "responses": [
+          {
+            "statusCode": 200,
+            "description": "The Logic App Response.",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/json",
+                "schemaId": "5f0bf30456311f13f0db1573",
+                "typeName": "ManualPathsInvokeTrackingidTripIdTimestampGet200ApplicationJsonResponse"
+              }
+            ]
+          },
+          {
+            "statusCode": 500,
+            "description": "The Logic App Response.",
+            "headers": [],
+            "representations": [
+              {
+                "contentType": "application/json",
+                "schemaId": "5f0bf30456311f13f0db1573",
+                "typeName": "ManualPathsInvokeTrackingidTripIdTimestampGet500ApplicationJsonResponse"
+              }
+            ]
+          }
+        ],
+        "displayName": "manual-invoke",
+        "method": "GET",
+        "urlTemplate": "/manual/paths/invoke/{trackingid}/{tripId}/{timestamp}"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-aip-test/manual-invoke')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('ApimServiceName'), 'st-aip-test')]",
+        "[resourceId('Microsoft.ApiManagement/service/apis/schemas', parameters('ApimServiceName'), 'st-aip-test', '5f0bf30456311f13f0db1573')]"
+      ]
+    },
+    {
+      "properties": {
+        "value": "[concat(parameters('PolicyXMLBaseUrl'), '/ST-AIP-TEST-manual-invoke-operationPolicy.xml')]",
+        "format": "rawxml-link"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-aip-test/manual-invoke/policy')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('ApimServiceName'), 'st-aip-test', 'manual-invoke')]"
+      ]
+    },
+    {
+      "properties": {
+        "value": "[concat(parameters('PolicyXMLBaseUrl'), '/ST-AIP-TEST-apiPolicy.xml')]",
+        "format": "rawxml-link"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-aip-test/policy')]",
+      "type": "Microsoft.ApiManagement/service/apis/policies",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('ApimServiceName'), 'ST-AIP-TEST')]"
+      ]
+    }
+  ]
+}
