@@ -1,0 +1,499 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "ApimServiceName": {
+      "type": "string"
+    },
+    "PolicyXMLBaseUrl": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "properties": {
+        "description": "",
+        "authenticationSettings": {
+          "subscriptionKeyRequired": false
+        },
+        "subscriptionKeyParameterNames": {
+          "header": "Ocp-Apim-Subscription-Key",
+          "query": "subscription-key"
+        },
+        "apiRevision": "1",
+        "isCurrent": true,
+        "subscriptionRequired": true,
+        "displayName": "ST-GIS",
+        "serviceUrl": "http://10.199.29.183",
+        "path": "external/ST-GIS",
+        "protocols": [
+          "https"
+        ]
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis')]",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "apiVersion": "2019-01-01",
+      "dependsOn": []
+    },
+    {
+      "properties": {
+        "templateParameters": [],
+        "description": "",
+        "request": {
+          "queryParameters": [
+            {
+              "name": "service",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "version",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "typename",
+              "type": "",
+              "required": true,
+              "values": []
+            }
+          ],
+          "headers": [],
+          "representations": []
+        },
+        "responses": [],
+        "displayName": "DescFeatureType",
+        "method": "GET",
+        "urlTemplate": "/describeFeatureType0"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/descriefeaturetype')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('ApimServiceName'), 'st-gis')]"
+      ]
+    },
+    {
+      "properties": {
+        "value": "[concat(parameters('PolicyXMLBaseUrl'), '/ST-GIS-descriefeaturetype-operationPolicy.xml')]",
+        "format": "rawxml-link"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/descriefeaturetype/policy')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('ApimServiceName'), 'st-gis', 'descriefeaturetype')]"
+      ]
+    },
+    {
+      "properties": {
+        "templateParameters": [],
+        "description": "",
+        "request": {
+          "queryParameters": [
+            {
+              "name": "service",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "version",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "typename",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "request",
+              "type": "",
+              "required": false,
+              "values": []
+            },
+            {
+              "name": "REQUEST",
+              "type": "",
+              "required": false,
+              "values": []
+            }
+          ],
+          "headers": [],
+          "representations": []
+        },
+        "responses": [],
+        "displayName": "DescFeatureType (clone)",
+        "method": "GET",
+        "urlTemplate": "/DescribeFeatureType"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/5f3a072f9bb7e72cc3c9a687')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('ApimServiceName'), 'st-gis')]"
+      ]
+    },
+    {
+      "properties": {
+        "value": "[concat(parameters('PolicyXMLBaseUrl'), '/ST-GIS-5f3a072f9bb7e72cc3c9a687-operationPolicy.xml')]",
+        "format": "rawxml-link"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/5f3a072f9bb7e72cc3c9a687/policy')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('ApimServiceName'), 'st-gis', '5f3a072f9bb7e72cc3c9a687')]"
+      ]
+    },
+    {
+      "properties": {
+        "templateParameters": [],
+        "description": "",
+        "request": {
+          "queryParameters": [
+            {
+              "name": "service",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "version",
+              "type": "",
+              "required": true,
+              "values": []
+            }
+          ],
+          "headers": [],
+          "representations": []
+        },
+        "responses": [],
+        "displayName": "GetCapabilities",
+        "method": "GET",
+        "urlTemplate": "/getCapabilities0"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/getcapabilities1')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('ApimServiceName'), 'st-gis')]"
+      ]
+    },
+    {
+      "properties": {
+        "value": "[concat(parameters('PolicyXMLBaseUrl'), '/ST-GIS-getcapabilities1-operationPolicy.xml')]",
+        "format": "rawxml-link"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/getcapabilities1/policy')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('ApimServiceName'), 'st-gis', 'getcapabilities1')]"
+      ]
+    },
+    {
+      "properties": {
+        "templateParameters": [],
+        "description": "",
+        "request": {
+          "queryParameters": [
+            {
+              "name": "request",
+              "type": "",
+              "required": false,
+              "values": []
+            },
+            {
+              "name": "service",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "version",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "REQUEST",
+              "type": "",
+              "required": false,
+              "values": []
+            }
+          ],
+          "headers": [],
+          "representations": []
+        },
+        "responses": [],
+        "displayName": "GetCapabilities (clone)",
+        "method": "GET",
+        "urlTemplate": "/GetCapabilities"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/5f3a01bcbb43748aa1d8ec7b')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('ApimServiceName'), 'st-gis')]"
+      ]
+    },
+    {
+      "properties": {
+        "value": "[concat(parameters('PolicyXMLBaseUrl'), '/ST-GIS-5f3a01bcbb43748aa1d8ec7b-operationPolicy.xml')]",
+        "format": "rawxml-link"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/5f3a01bcbb43748aa1d8ec7b/policy')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('ApimServiceName'), 'st-gis', '5f3a01bcbb43748aa1d8ec7b')]"
+      ]
+    },
+    {
+      "properties": {
+        "templateParameters": [],
+        "description": "",
+        "request": {
+          "queryParameters": [
+            {
+              "name": "service",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "version",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "typename",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "srsname",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "maxfeatures",
+              "type": "",
+              "required": true,
+              "values": []
+            }
+          ],
+          "headers": [],
+          "representations": []
+        },
+        "responses": [],
+        "displayName": "GetFeature",
+        "method": "GET",
+        "urlTemplate": "/getFeature0"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/getfeature1')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('ApimServiceName'), 'st-gis')]"
+      ]
+    },
+    {
+      "properties": {
+        "value": "[concat(parameters('PolicyXMLBaseUrl'), '/ST-GIS-getfeature1-operationPolicy.xml')]",
+        "format": "rawxml-link"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/getfeature1/policy')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('ApimServiceName'), 'st-gis', 'getfeature1')]"
+      ]
+    },
+    {
+      "properties": {
+        "templateParameters": [],
+        "description": "",
+        "request": {
+          "queryParameters": [
+            {
+              "name": "service",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "version",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "typename",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "srsname",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "maxfeatures",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "request",
+              "type": "",
+              "required": false,
+              "values": []
+            },
+            {
+              "name": "outputformat",
+              "type": "",
+              "required": false,
+              "values": []
+            },
+            {
+              "name": "resulttype",
+              "type": "",
+              "required": false,
+              "values": []
+            },
+            {
+              "name": "propertyname",
+              "type": "",
+              "required": false,
+              "values": []
+            },
+            {
+              "name": "featureid",
+              "type": "",
+              "required": false,
+              "values": []
+            },
+            {
+              "name": "filter",
+              "type": "",
+              "required": false,
+              "values": []
+            },
+            {
+              "name": "bbox",
+              "type": "",
+              "required": false,
+              "values": []
+            },
+            {
+              "name": "sortby",
+              "type": "",
+              "required": false,
+              "values": []
+            },
+            {
+              "name": "REQUEST",
+              "type": "",
+              "required": false,
+              "values": []
+            }
+          ],
+          "headers": [],
+          "representations": []
+        },
+        "responses": [],
+        "displayName": "GetFeature (clone)",
+        "method": "GET",
+        "urlTemplate": "/GetFeature"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/5f3a0ca35cdbf8ed5e71db3b')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('ApimServiceName'), 'st-gis')]"
+      ]
+    },
+    {
+      "properties": {
+        "value": "[concat(parameters('PolicyXMLBaseUrl'), '/ST-GIS-5f3a0ca35cdbf8ed5e71db3b-operationPolicy.xml')]",
+        "format": "rawxml-link"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/5f3a0ca35cdbf8ed5e71db3b/policy')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('ApimServiceName'), 'st-gis', '5f3a0ca35cdbf8ed5e71db3b')]"
+      ]
+    },
+    {
+      "properties": {
+        "templateParameters": [],
+        "description": "",
+        "request": {
+          "queryParameters": [
+            {
+              "name": "type",
+              "type": "",
+              "required": true,
+              "values": []
+            },
+            {
+              "name": "token",
+              "type": "",
+              "required": true,
+              "values": []
+            }
+          ],
+          "headers": [],
+          "representations": []
+        },
+        "responses": [],
+        "displayName": "GetGISSchema",
+        "method": "GET",
+        "urlTemplate": "/xsd"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/getgisschema')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('ApimServiceName'), 'st-gis')]"
+      ]
+    },
+    {
+      "properties": {
+        "value": "[concat(parameters('PolicyXMLBaseUrl'), '/ST-GIS-getgisschema-operationPolicy.xml')]",
+        "format": "rawxml-link"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/getgisschema/policy')]",
+      "type": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis/operations', parameters('ApimServiceName'), 'st-gis', 'getgisschema')]"
+      ]
+    },
+    {
+      "properties": {
+        "value": "[concat(parameters('PolicyXMLBaseUrl'), '/ST-GIS-apiPolicy.xml')]",
+        "format": "rawxml-link"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/st-gis/policy')]",
+      "type": "Microsoft.ApiManagement/service/apis/policies",
+      "apiVersion": "2019-01-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ApiManagement/service/apis', parameters('ApimServiceName'), 'ST-GIS')]"
+      ]
+    }
+  ]
+}
