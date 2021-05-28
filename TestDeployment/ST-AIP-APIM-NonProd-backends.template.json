@@ -1,0 +1,80 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "ApimServiceName": {
+      "type": "string"
+    },
+    "PolicyXMLBaseUrl": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "properties": {
+        "description": "ST-AIP-LA-APIMDAZURG01-GetSetDetails",
+        "resourceId": "https://management.azure.com/subscriptions/057c9f00-13e2-4d58-9fde-0397934ff0a0/resourceGroups/APIMDAZURG01/providers/Microsoft.Logic/workflows/ST-AIP-LA-APIMDAZURG01-GetSetDetails",
+        "url": "https://prod-00-st-aip-ise-apim-2emvoquvaf27g-internal.australiaeast.environments.microsoftazurelogicapps.net/workflows/d73286d697814203a3327fbbe67c1a6b/triggers",
+        "protocol": "http"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/LogicApp_ST-AIP-LA-APIMDAZURG01-GetSetDetails_1455ccd13543ed5341d50061255144eb')]",
+      "type": "Microsoft.ApiManagement/service/backends",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "description": "ST-AIP-LA-APIMDAZURG01-NonProd",
+        "resourceId": "https://management.azure.com/subscriptions/057c9f00-13e2-4d58-9fde-0397934ff0a0/resourceGroups/APIMDAZURG01/providers/Microsoft.Logic/workflows/ST-AIP-LA-APIMDAZURG01-NonProd",
+        "url": "https://prod-00-st-aip-ise-apim-2emvoquvaf27g-internal.australiaeast.environments.microsoftazurelogicapps.net/workflows/ed40814aef094f798f9daab6a6068e08/triggers",
+        "protocol": "http"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/LogicApp_ST-AIP-LA-APIMDAZURG01-NonProd_APIMD_b6c3b952d7b2b02bfadf3cff58e70dc2')]",
+      "type": "Microsoft.ApiManagement/service/backends",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "description": "ST-AIP-LA-GetTripsDetail",
+        "resourceId": "https://management.azure.com/subscriptions/2e030d4c-7a07-48db-8bd1-4bbcd607dfdf/resourceGroups/ST-AIP-RG-NonProd/providers/Microsoft.Logic/workflows/ST-AIP-LA-GetTripsDetail",
+        "url": "https://prod-00-st-aip-ise-nonp-mfu5g7nvjv57a-internal.australiaeast.environments.microsoftazurelogicapps.net/workflows/c7af93729f5a4b09800c4a52f73602a2/triggers",
+        "protocol": "http"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/LogicApp_ST-AIP-LA-GetTripsDetail_ST-AIP-RG-N_9a0f20f55f63a567e6f8d2384a90c63c')]",
+      "type": "Microsoft.ApiManagement/service/backends",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "description": "ST-AIP-SHAREDRG-GetTripDetails-NonProd",
+        "resourceId": "https://management.azure.com/subscriptions/2e030d4c-7a07-48db-8bd1-4bbcd607dfdf/resourceGroups/Shared-RG/providers/Microsoft.Logic/workflows/ST-AIP-SHAREDRG-GetTripDetails-NonProd",
+        "url": "https://prod-00-st-aip-ise-shar-chbdhe5usxcr4-internal.australiaeast.environments.microsoftazurelogicapps.net/workflows/5143f6e071e74fc19b1dd5ad3a8c60c9/triggers",
+        "protocol": "http"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/LogicApp_ST-AIP-SHAREDRG-GetTripDetails-NonPr_b5c047b94e5f0b47c099f822eb54e433')]",
+      "type": "Microsoft.ApiManagement/service/backends",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "description": "ST-AIP-TEST",
+        "resourceId": "https://management.azure.com/subscriptions/2e030d4c-7a07-48db-8bd1-4bbcd607dfdf/resourceGroups/Shared-RG/providers/Microsoft.Logic/workflows/ST-AIP-TEST",
+        "url": "https://prod-00-st-aip-ise-shar-chbdhe5usxcr4-internal.australiaeast.environments.microsoftazurelogicapps.net/workflows/e2ac930177ce45f1a358715cffd9b260/triggers",
+        "protocol": "http"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/LogicApp_ST-AIP-TEST_Shared-RG_2e030d4c7a0748db8bd14bbcd607dfdf')]",
+      "type": "Microsoft.ApiManagement/service/backends",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "description": "TestConnectivity",
+        "resourceId": "https://management.azure.com/subscriptions/2e030d4c-7a07-48db-8bd1-4bbcd607dfdf/resourceGroups/Shared-RG/providers/Microsoft.Logic/workflows/TestConnectivity",
+        "url": "https://prod-00-st-aip-ise-shar-chbdhe5usxcr4-internal.australiaeast.environments.microsoftazurelogicapps.net/workflows/87fd77bbabb3420080fc60bc83adc73f/triggers",
+        "protocol": "http"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/LogicApp_TestConnectivity_Shared-RG_2e030d4c7a0748db8bd14bbcd607dfdf')]",
+      "type": "Microsoft.ApiManagement/service/backends",
+      "apiVersion": "2019-01-01"
+    }
+  ]
+}

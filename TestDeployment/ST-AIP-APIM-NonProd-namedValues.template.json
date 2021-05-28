@@ -1,0 +1,177 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "ApimServiceName": {
+      "type": "string"
+    },
+    "PolicyXMLBaseUrl": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "properties": {
+        "secret": true,
+        "displayName": "Logger-Credentials-5f963a457bf5b70734d0de78",
+        "value": "d4bcbbb0-0667-4be2-970a-1c7f902c9a5e"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5f963a457bf5b70734d0de77')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "secret": true,
+        "displayName": "Logger-Credentials-5f9b59c87bf5b70734d0de88",
+        "value": "599ecd4c-03b8-4d33-a0df-b3c063d5d798"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5f9b59c87bf5b70734d0de87')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "tags": [],
+        "secret": true,
+        "displayName": "sharedrg-gettripdetails-nonprod_manual-invoke_5ef4406c7c459145b65a9e01",
+        "value": "8NIqHbvDd2BagqMauIlp9RalAT_D77gDB1q9gWEOC6Q"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5ef4406c7c459145b65a9e01')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "tags": [],
+        "secret": true,
+        "displayName": "st-aip-la-apimdazurg01-getsetdetails_manual-invoke_5f8ff411a61773263259ad8a",
+        "value": "cJV1McZjBR3h1locjB1zcbAG5mHHUmm3xpLZFvSMRdA"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5f8ff411a61773263259ad8a')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "tags": [],
+        "secret": true,
+        "displayName": "st-aip-la-apimdazurg01-getsetdetails_manual-invoke_5fae20220c22a3fab327d3e6",
+        "value": "cJV1McZjBR3h1locjB1zcbAG5mHHUmm3xpLZFvSMRdA"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5fae20220c22a3fab327d3e6')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "tags": [],
+        "secret": true,
+        "displayName": "st-aip-la-apimdazurg01-nonprod_manual-invoke_5f685518b303dd1c095b8852",
+        "value": "P5_AIoT54wCXASQnioDy2G2LlCDI_iIxtOWrp6Jb1IM"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5f685518b303dd1c095b8852')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "tags": [],
+        "secret": true,
+        "displayName": "st-aip-la-apimdazurg01-nonprod_manual-invoke_5f8ff29bfcda29c6955bb35d",
+        "value": "cJV1McZjBR3h1locjB1zcbAG5mHHUmm3xpLZFvSMRdA"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5f8ff29bfcda29c6955bb35d')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "tags": [],
+        "secret": true,
+        "displayName": "st-aip-la-gettripsdetail_manual-invoke_5ef17bc5c3e323f8b752f920",
+        "value": "xGwtVyhpn93ysEpsRrhRqhd00ha19Y-GYi9Ebx1pReE"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5ef17bc5c3e323f8b752f920')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "tags": [],
+        "secret": true,
+        "displayName": "st-aip-la-gettripsdetail_manual-invoke_5ef4400b3a4b64ff4f7ac839",
+        "value": "xGwtVyhpn93ysEpsRrhRqhd00ha19Y-GYi9Ebx1pReE"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5ef4400b3a4b64ff4f7ac839')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "tags": [],
+        "secret": true,
+        "displayName": "st-aip-sharedrg-gettripdetails-nonprod_manual-invoke_5ef157577046424f5039b8b8",
+        "value": "8NIqHbvDd2BagqMauIlp9RalAT_D77gDB1q9gWEOC6Q"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5ef157577046424f5039b8b8')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "tags": [],
+        "secret": true,
+        "displayName": "st-aip-sharedrg-gettripdetails-nonprod_manual-invoke_5ef18188407e2f75e7aa844d",
+        "value": "8NIqHbvDd2BagqMauIlp9RalAT_D77gDB1q9gWEOC6Q"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5ef18188407e2f75e7aa844d')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "tags": [],
+        "secret": true,
+        "displayName": "st-aip-sharedrg-gettripdetails-nonprod_manual-invoke_5f07bbb0994df415a83213e6",
+        "value": "8NIqHbvDd2BagqMauIlp9RalAT_D77gDB1q9gWEOC6Q"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5f07bbb0994df415a83213e6')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "tags": [],
+        "secret": true,
+        "displayName": "st-aip-sharedrg-gettripdetails-nonprod_manual-invoke_5f07c0906b10d373e3d9b84a",
+        "value": "8NIqHbvDd2BagqMauIlp9RalAT_D77gDB1q9gWEOC6Q"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5f07c0906b10d373e3d9b84a')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "tags": [],
+        "secret": true,
+        "displayName": "st-aip-test_manual-invoke_5f0bf306b8e4fa393455eebc",
+        "value": "5C1v-k_zjdAN2aNDU6UF9f8KkIqyi34rUIwTXH9dHrc"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5f0bf306b8e4fa393455eebc')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "tags": [],
+        "secret": true,
+        "displayName": "testconnectivity_manual-invoke_5f07b9dfc776cfaeecf2ceac",
+        "value": "BeWDSQoxjU3zUnf2qw_EYcv0MSwXMjrCTErvy2MGiZI"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/5f07b9dfc776cfaeecf2ceac')]",
+      "type": "Microsoft.ApiManagement/service/properties",
+      "apiVersion": "2019-01-01"
+    }
+  ]
+}
